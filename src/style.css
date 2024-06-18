@@ -1,0 +1,177 @@
+@font-face {
+  font-family: "Work Sans";
+  src: url("../assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+
+:root {
+  /* Colors */
+  --color-white: hsl(0, 0%, 100%); /* Neutral */
+  --color-light-pink: hsl(275, 100%, 97%); /* Secondary */
+  --color-grayish-purple: hsl(292, 16%, 49%); /* Tertiary */
+  --color-dark-purple: hsl(292, 42%, 14%); /* Primary */
+  --color-grayish-purple-100: hsla(293, 16%, 49%, 0.2);
+  --color-purple-400: hsla(281, 83%, 54%, 1);
+
+  /* Font */
+  --font-family: "Work Sans", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* CSS Custom Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* General Stylinng */
+body {
+  font-family: var(--font-family);
+  background-image: url("../assets/images/background-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: var(--color-light-pink);
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+hr {
+  background-color: var(--color-light-pink);
+  height: 1px;
+  border: 0;
+}
+
+/* Specific Styling */
+.accordion {
+  max-width: 500px;
+  background-color: var(--color-white);
+  padding: 1.25rem;
+  border-radius: 16px;
+  display: grid;
+  gap: 1rem;
+  box-shadow: 0px 20px 25px 0px var(--color-grayish-purple-100);
+  margin-inline: 1rem;
+}
+
+.accordion__title {
+  display: inline-flex;
+  gap: 1rem;
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+}
+
+.accordion__title::before {
+  content: "";
+  width: 35px;
+  background-image: url("../assets/images/icon-star.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.accordion__question {
+  font-size: 1rem;
+  color: var(--color-dark-purple);
+  cursor: pointer;
+}
+.accordion__question:hover {
+  color: var(--color-purple-400);
+}
+
+.accordion__question img {
+  width: 30px;
+}
+
+.accordion__toggle-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+
+  display: inline-flex;
+}
+
+.accordion__toggle-btn--plus::before,
+.accordion__toggle-btn--minus::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.accordion__toggle-btn--plus::before {
+  background-image: url("../assets/images/icon-plus.svg");
+}
+.accordion__toggle-btn--minus::before {
+  background-image: url("../assets/images/icon-minus.svg");
+}
+
+.accordion__toggle-btn:hover {
+  cursor: pointer;
+}
+
+.accordion__answer {
+  color: var(--color-grayish-purple);
+  margin-block: 1rem;
+  display: none;
+}
+
+.accordion__answer--show {
+  display: block;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: var(--color-purple-400);
+  text-underline-offset: 2px;
+  font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  body {
+    background-image: url("../assets/images/background-pattern-mobile.svg");
+  }
+}
